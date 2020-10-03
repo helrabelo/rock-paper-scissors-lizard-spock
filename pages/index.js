@@ -5,15 +5,18 @@ import styles from './index.less';
 import { gameOptions } from '../constants/GameOptions';
 
 import { capitalize } from '../helpers/StringManipulation';
-
 import { getComputerChoice } from '../helpers/ComputerChoice';
 
-import Container from '../components/Container/index';
-
-import Button from '../components/Button/index';
+import Container from '../components/Container';
+import Button from '../components/Button';
+import GamePanel from '../components/GamePanel';
+import Statistics from '../components/StatisticsWrapper';
 
 export default function Home() {
-  const [games, setGame] = useState([]);
+  // States
+  const [games, setGame] = useState([
+    { user: 'lizard', computer: 'spock', result: 'W' },
+  ]);
 
   const [game, setNewGame] = useState({
     user: null,
@@ -25,6 +28,7 @@ export default function Home() {
 
   const [computerChoice, setComputerChoice] = useState(null);
 
+  // Handlers
   const handleChoice = (option) => () => {
     setUserChoice(option);
     setComputerChoice(getComputerChoice());
@@ -117,71 +121,15 @@ export default function Home() {
       </Head>
 
       {/* MAIN BLOCK */}
-      <Container className={styles.mainGame}>
-        {/* RESULT */}
-        <div className={styles.cardItems}>
-          <div className={styles.item}>
-            <p>User choice: {userChoice}</p>
-          </div>
-          <div className={styles.item}>
-            <p>Computer choice: {computerChoice}</p>
-          </div>
-        </div>
-
-        <div className={styles.result}>
-          <p>Result</p>
-          <Button
-            onClick={handleNewGame}
-            classes={styles.chooseButton}
-            alert
-          >
-            New Game
-          </Button>
-        </div>
-
-        {/* ACTIONS */}
-        <div className={styles.userChoices}>
-          {gameOptions.map((option) => {
-            return (
-              <>
-                <Button
-                  key={option.option}
-                  onClick={handleChoice(capitalize(option.option))}
-                  classes={styles.chooseButton}
-                  primary
-                >
-                  {capitalize(option.option)}
-                </Button>
-              </>
-            );
-          })}
-        </div>
-      </Container>
+      <GamePanel
+        userChoice={userChoice}
+        computerChoice={computerChoice}
+        handleChoice={handleChoice}
+        handleNewGame={handleNewGame}
+      />
 
       {/* GENERAL SCORE / OPTIONS */}
-      <Container>
-        <div className={styles.statistics}>
-          <div>
-            <p>Games played: </p>
-            <h3>443</h3>
-          </div>
-          <div>
-            <p>Games won: </p>
-            <h3>223</h3>
-          </div>
-          <div>
-            <p>Games won with Spock: </p>
-            <h3>123</h3>
-          </div>
-          <div>
-            <p>Games lost to Lizard: </p>
-            <h3>50</h3>
-          </div>
-        </div>
-        <div>
-          <button>Reset Statistics</button>
-        </div>
-      </Container>
+      <Statistics games={games} />
 
       {/* FOOTER */}
     </div>

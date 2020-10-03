@@ -5,7 +5,7 @@ const Container = (props) => {
   return (
     <div
       {...props}
-      className={`${styles.container} ${props.classes}`}
+      className={`${styles.container} ${props.className}`}
     >
       {props.children}
     </div>

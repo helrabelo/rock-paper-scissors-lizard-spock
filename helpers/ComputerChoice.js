@@ -1,13 +1,13 @@
 import {gameOptions} from '../constants/GameOptions';
-import { capitalize } from './StringManipulation';
 
-// Returns a random number between 1-5
+// return random choice 
 export function getComputerChoice() {
-  return capitalize(gameOptions[generateRandomNumberFromRange()].option.toString());
+  return gameOptions[generateRandomNumberFromRange()].option.toString();
 }
 
 
 
+// Returns a random number between 1-5
 function generateRandomNumberFromRange(){
   return Math.floor(Math.random() * 5);
 }
