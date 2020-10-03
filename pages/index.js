@@ -6,6 +6,12 @@ import { gameOptions } from '../constants/GameOptions';
 
 import { capitalize } from '../helpers/StringManipulation';
 
+import { getComputerChoice } from '../helpers/ComputerChoice';
+
+import Container from '../components/Container/index';
+
+import Button from '../components/Button/index';
+
 export default function Home() {
   const [games, setGame] = useState([]);
 
@@ -16,6 +22,18 @@ export default function Home() {
   });
 
   const [userChoice, setUserChoice] = useState(null);
+
+  const [computerChoice, setComputerChoice] = useState(null);
+
+  const handleChoice = (option) => () => {
+    setUserChoice(option);
+    setComputerChoice(getComputerChoice());
+  };
+
+  const handleNewGame = () => {
+    setUserChoice(null);
+    setComputerChoice(null);
+  };
 
   return (
     // GAME WRAPPER
@@ -99,34 +117,49 @@ export default function Home() {
       </Head>
 
       {/* MAIN BLOCK */}
-      <div className={`${styles.container} ${styles.mainGame}`}>
+      <Container className={styles.mainGame}>
         {/* RESULT */}
         <div className={styles.cardItems}>
           <div className={styles.item}>
-            <p>User choice</p>
+            <p>User choice: {userChoice}</p>
           </div>
           <div className={styles.item}>
-            <p>Computer choice</p>
+            <p>Computer choice: {computerChoice}</p>
           </div>
         </div>
 
         <div className={styles.result}>
           <p>Result</p>
+          <Button
+            onClick={handleNewGame}
+            classes={styles.chooseButton}
+            alert
+          >
+            New Game
+          </Button>
         </div>
 
         {/* ACTIONS */}
         <div className={styles.userChoices}>
-          {gameOptions.map(option => {
-            return <>
-            <button>{capitalize(option.option)}</button>
-            </>
+          {gameOptions.map((option) => {
+            return (
+              <>
+                <Button
+                  key={option.option}
+                  onClick={handleChoice(capitalize(option.option))}
+                  classes={styles.chooseButton}
+                  primary
+                >
+                  {capitalize(option.option)}
+                </Button>
+              </>
+            );
           })}
-          
         </div>
-      </div>
+      </Container>
 
       {/* GENERAL SCORE / OPTIONS */}
-      <div className={styles.container}>
+      <Container>
         <div className={styles.statistics}>
           <div>
             <p>Games played: </p>
@@ -148,7 +181,7 @@ export default function Home() {
         <div>
           <button>Reset Statistics</button>
         </div>
-      </div>
+      </Container>
 
       {/* FOOTER */}
     </div>

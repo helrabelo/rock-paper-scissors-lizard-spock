@@ -1,0 +1,24 @@
+@import '../../styles/variables.less';
+
+.button {
+  padding: 12px 24px;
+  width: 100%;
+  border: 1px solid #ccc;
+  box-shadow: 1px 3px 10px #0004;
+  border-radius: 25px;
+  transition: 0.3s all ease-in-out;
+
+  &:hover{
+    background-color: @secondaryColor;
+    
+  }
+}
+
+.primary {
+  background-color: @buttonPrimary;
+  color: @tertiaryColor;
+}
+
+.alert {
+  background-color: @buttonAlert;
+}
