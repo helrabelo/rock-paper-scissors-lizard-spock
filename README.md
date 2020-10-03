@@ -1,11 +1,28 @@
 
 # rock-paper-scissors-lizard-spock
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Rock–paper–scissors (also known as scissors-paper-rock or other  variants) is a hand game usually played between two people, in which  each player simultaneously forms one of three shapes with an  outstretched hand. These shapes are "rock" (a closed fist), "paper" (a  flat hand), and "scissors" (a fist with the index finger and middle  finger extended, forming a V). "Scissors" is identical to the  two-fingered V sign (aka "victory" or "peace sign") except that it is  pointed horizontally instead of being held upright in the air. A  simultaneous, zero-sum game, it has only two possible outcomes: a draw,  or a win for one player and a loss for the other.
 
-## Getting Started
 
-First, run the development server:
+## About
+
+This project was developed using [Next.js](https://nextjs.org/) and [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+You can check out a live version under this link:
+
+https://rock-paper-scissors-lizard-spock.helrabelo.vercel.app/
+
+## Run locally
+
+Clone this repo, then on your terminal do:
+
+```bash
+npm install
+# or 
+yarn install
+```
+
+followed by:
 
 ```bash
 npm run dev
@@ -13,22 +30,5 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Once the project is running it should be available under: [http://localhost:3000](http://localhost:3000) 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
->>>>>>> f1152481387ea4ac801260f4f34145549d1df9af

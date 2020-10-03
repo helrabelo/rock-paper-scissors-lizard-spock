@@ -1,0 +1,41 @@
+.container {
+  background-color: lightcyan;
+  max-width: 1140px;
+  margin: 20px auto;
+  padding: 20px;
+
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 300px;
+  }
+}
+
+
+.mainGame {
+  border: thin solid red;
+
+  .cardItems {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+
+    .item {
+      flex-grow: 1;
+      width: 100%;
+      border: thin solid blue;
+      padding: 10px;
+    }
+  }
+
+  .result {
+    
+  }
+}
+
+.statistics {
+  display: flex;
+  justify-content: space-between;
+}

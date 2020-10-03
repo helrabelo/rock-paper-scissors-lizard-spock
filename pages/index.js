@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import styles from './index.less';
 
 export default function Home() {
-
   return (
     // GAME WRAPPER
-    <div className={styles.container}>
+    <div className={styles.gameWrapper}>
       <Head>
-        <title>Create Next App</title>
+        <title>Rock  Paper Scissors Spock Lizard</title>
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="apple-touch-icon"
@@ -85,27 +84,35 @@ export default function Home() {
         <meta name="theme-color" content="#ffffff" />
       </Head>
 
-      <h1>HERE GOES THE GAME</h1>
-
-      <h1>Hello, Spock</h1>
-
       {/* MAIN BLOCK */}
-      <div>
+      <div className={`${styles.container} ${styles.mainGame}`}>
         {/* RESULT */}
-        <div>
-          <h3>Here are the images / result </h3>
+        <div className={styles.cardItems}>
+          <div className={styles.item}>
+            <p>User choice</p>
+          </div>
+          <div className={styles.item}>
+            <p>Computer choice</p>
+          </div>
+        </div>
+
+        <div className={styles.result}>
+          <p>Result</p>
         </div>
 
         {/* ACTIONS */}
-        <div>
-          <h3>Here are the user inputs / buttons </h3>
+        <div className={styles.userChoices}>
+          <button>Rock</button>
+          <button>Paper</button>
+          <button>Scissors</button>
+          <button>Spock</button>
+          <button>Lizard</button>
         </div>
       </div>
 
       {/* GENERAL SCORE / OPTIONS */}
-      <div>
-        <h1>HERE GOES THE SCORE / OPTIONS </h1>
-        <div>
+      <div className={styles.container}>
+        <div className={styles.statistics}>
           <div>
             <p>Games played: </p>
             <h3>443</h3>
