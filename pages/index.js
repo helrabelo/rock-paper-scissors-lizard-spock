@@ -2,12 +2,26 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import styles from './index.less';
 
+import { gameOptions } from '../constants/GameOptions';
+
+import { capitalize } from '../helpers/StringManipulation';
+
 export default function Home() {
+  const [games, setGame] = useState([]);
+
+  const [game, setNewGame] = useState({
+    user: null,
+    computer: null,
+    result: null,
+  });
+
+  const [userChoice, setUserChoice] = useState(null);
+
   return (
     // GAME WRAPPER
     <div className={styles.gameWrapper}>
       <Head>
-        <title>Rock  Paper Scissors Spock Lizard</title>
+        <title>Rock Paper Scissors Spock Lizard</title>
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="apple-touch-icon"
@@ -102,11 +116,12 @@ export default function Home() {
 
         {/* ACTIONS */}
         <div className={styles.userChoices}>
-          <button>Rock</button>
-          <button>Paper</button>
-          <button>Scissors</button>
-          <button>Spock</button>
-          <button>Lizard</button>
+          {gameOptions.map(option => {
+            return <>
+            <button>{capitalize(option.option)}</button>
+            </>
+          })}
+          
         </div>
       </div>
 
