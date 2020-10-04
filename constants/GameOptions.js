@@ -8,15 +8,15 @@ export const gameOptions = [
     beats: ['rock', 'spock'],
   },
   {
-    option: ['scissors'],
+    option: 'scissors',
     beats: ['lizard', 'paper'],
   },
   {
-    option: ['lizard'],
+    option: 'lizard',
     beats: ['paper', 'spock'],
   },
   {
-    option: ['spock'],
+    option: 'spock',
     beats: ['rock', 'scissors'],
   },
 ];

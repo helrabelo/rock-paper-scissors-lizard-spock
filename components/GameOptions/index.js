@@ -10,16 +10,16 @@ import styles from './gameoptions.less';
 const GameOptions = ({handleChoice}) => {
   return (
     <div className={styles.gameOptions}>
-      {gameOptions.map((option) => {
+      {gameOptions.map((option, index) => {
         return (
           <>
             <Button
-              key={option.option}
-              onClick={handleChoice(option.option)}
+              key={`${index}-${option.option}`}
+              onClick={handleChoice(option.option.toString())}
               classes={styles.chooseButton}
               primary
             >
-              {capitalize(option.option)}
+              {capitalize(option.option).toString()}
             </Button>
           </>
         );

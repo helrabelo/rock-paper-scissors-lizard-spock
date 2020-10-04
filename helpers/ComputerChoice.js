@@ -9,6 +9,6 @@ export function getComputerChoice() {
 
 // Returns a random number between 1-5
 function generateRandomNumberFromRange(){
-  return Math.floor(Math.random() * 5);
+  return (Math.floor(Math.random() * 5) + 1) - 1;
 }
 

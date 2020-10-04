@@ -8,38 +8,41 @@ import GameOptions from '../GameOptions';
 
 import { gameOptions } from '../../constants/GameOptions';
 import { capitalize } from '../../helpers/StringManipulation';
+import { calculateResult } from '../../helpers/CalculateResult';
 
 import styles from './gamepanel.less';
 
-const GamePanel = ({userChoice, computerChoice, handleChoice, handleNewGame}) => {
+const GamePanel = ({
+  userChoice,
+  computerChoice,
+  handleChoice,
+  handleResetGame,
+  handleSubmitChoice,
+  currentGame
+}) => {
+
   return (
     <Container className={styles.mainGame}>
       {/* MAIN GAME SCREEN - RESULT */}
-      <OptionCard userChoice={userChoice} gameStatus={'W'}/>
-
-      <div className={styles.cardItems}>
-        <div className={styles.item}>
-          <p>User choice: {userChoice}</p>
-        </div>
-        <div className={styles.item}>
-          <p>Computer choice: {computerChoice}</p>
-        </div>
+      <div className={styles.optionsWrapper}>
+        <OptionCard userChoice={currentGame.user} gameStatus={currentGame.result} />
+        <OptionCard userChoice={currentGame.computer} gameStatus={currentGame.result} />
       </div>
 
       <div className={styles.controlWrapper}>
         {/* ACTIONS */}
-        
+
         <GameOptions handleChoice={handleChoice} />
 
         <div className={styles.result}>
           <div className={styles.buttons}>
-            <Button onClick={handleNewGame} classes={styles.chooseButton}>
+            <Button onClick={handleSubmitChoice} classes={styles.chooseButton}>
               Confirm Choice
             </Button>
 
             <p>Result</p>
           </div>
-          <Button onClick={handleNewGame} classes={styles.chooseButton} alert>
+          <Button onClick={handleResetGame} classes={styles.chooseButton} alert={true}>
             Reset choice
           </Button>
         </div>

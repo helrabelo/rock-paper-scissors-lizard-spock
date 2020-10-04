@@ -6,6 +6,7 @@ import { gameOptions } from '../constants/GameOptions';
 
 import { capitalize } from '../helpers/StringManipulation';
 import { getComputerChoice } from '../helpers/ComputerChoice';
+import { calculateResult } from '../helpers/CalculateResult';
 
 import Container from '../components/Container';
 import Button from '../components/Button';
@@ -14,15 +15,9 @@ import Statistics from '../components/StatisticsWrapper';
 
 export default function Home() {
   // States
-  const [games, setGame] = useState([
-    { user: 'lizard', computer: 'spock', result: 'W' },
-  ]);
+  const [games, setGame] = useState([]);
 
-  const [game, setNewGame] = useState({
-    user: null,
-    computer: null,
-    result: null,
-  });
+  const [currentGame, setCurrentGame] = useState({});
 
   const [userChoice, setUserChoice] = useState(null);
 
@@ -34,10 +29,41 @@ export default function Home() {
     setComputerChoice(getComputerChoice());
   };
 
-  const handleNewGame = () => {
+  const handleResetGame = () => {
     setUserChoice(null);
     setComputerChoice(null);
+    setCurrentGame({ result: null });
   };
+
+  const handleSetLastGame = (game) => {
+    setCurrentGame(game);
+  };
+
+  const handleSubmitChoice = () => {
+    let result = calculateResult(userChoice, computerChoice);
+
+    setCurrentGame({
+      ...currentGame,
+      result,
+    });
+
+    setGame([...games, {user: userChoice, computer: computerChoice, result}]);
+  };
+
+  const handleResetStatistics = () => {
+    setUserChoice(null);
+    setComputerChoice(null);
+    setCurrentGame({ result: null });
+    setGame([]);
+  };
+
+  useEffect(() => {
+    setCurrentGame({
+      ...currentGame,
+      user: userChoice,
+      computer: computerChoice,
+    });
+  }, [userChoice]);
 
   return (
     // GAME WRAPPER
@@ -122,14 +148,14 @@ export default function Home() {
 
       {/* MAIN BLOCK */}
       <GamePanel
-        userChoice={userChoice}
-        computerChoice={computerChoice}
         handleChoice={handleChoice}
-        handleNewGame={handleNewGame}
+        handleResetGame={handleResetGame}
+        currentGame={currentGame}
+        handleSubmitChoice={handleSubmitChoice}
       />
 
       {/* GENERAL SCORE / OPTIONS */}
-      <Statistics games={games} />
+      <Statistics games={games} resetStatistics={handleResetStatistics} />
 
       {/* FOOTER */}
     </div>
