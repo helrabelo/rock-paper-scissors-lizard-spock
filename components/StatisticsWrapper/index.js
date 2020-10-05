@@ -36,7 +36,7 @@ const StatisticsWrapper = ({ games, resetStatistics }) => {
           </div>
         </div>
         <div className={styles.resetAll}>
-          <button onClick={resetStatistics}>Reset Statistics</button>
+          <Button onClick={resetStatistics}>Reset Statistics</Button>
         </div>
       </Container>
       <Container className={styles.statisticsHistory}>

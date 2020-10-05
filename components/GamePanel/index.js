@@ -6,15 +6,9 @@ import Button from '../Button';
 import OptionCard from '../OptionCard';
 import GameOptions from '../GameOptions';
 
-import { gameOptions } from '../../constants/GameOptions';
-import { capitalize } from '../../helpers/StringManipulation';
-import { calculateResult } from '../../helpers/CalculateResult';
-
 import styles from './gamepanel.less';
 
 const GamePanel = ({
-  userChoice,
-  computerChoice,
   handleChoice,
   handleResetGame,
   handleSubmitChoice,
@@ -25,8 +19,8 @@ const GamePanel = ({
     <Container className={styles.mainGame}>
       {/* MAIN GAME SCREEN - RESULT */}
       <div className={styles.optionsWrapper}>
-        <OptionCard userChoice={currentGame.user} gameStatus={currentGame.result} />
-        <OptionCard userChoice={currentGame.computer} gameStatus={currentGame.result} />
+        <OptionCard type={'user'} userChoice={currentGame.user} gameStatus={currentGame.result} />
+        <OptionCard type={'computer'} userChoice={currentGame.computer} gameStatus={currentGame.result} />
       </div>
 
       <div className={styles.controlWrapper}>
