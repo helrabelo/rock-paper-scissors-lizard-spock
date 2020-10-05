@@ -38,15 +38,23 @@ const OptionCard = ({ type, userChoice, gameStatus }) => {
             ? `computer choice is: ${userChoice}`
             : `Please confirm your choice to see computer's`}
         </p>
-        <h1>Here we should have and Image</h1>
+
         {type === 'user' ? (
-          <p>
-            {gameStatus
-              ? `The game status is: ${gameStatus}`
-              : `Please confirm your choice to see the result`}
-          </p>
+          <>
+            <h3>{userChoice}</h3>
+            <p>
+              {gameStatus
+                ? `The game status is: ${gameStatus}`
+                : `Please confirm your choice to see the result`}
+            </p>
+          </>
+        ) : gameStatus ? (
+          <>
+            <h3>{userChoice}</h3>
+            <p>COMPUTER</p>{' '}
+          </>
         ) : (
-          <p></p>
+          <p>COMPUTER</p>
         )}
       </div>
     </div>

@@ -7,17 +7,14 @@ import Container from '../Container';
 import { gameResults } from '../../constants/GameResults';
 
 const History = ({ games }) => {
-
   return (
     <Container className={styles.historyWrapper}>
       {games.map((game, index) => {
-
-        let gameResultClasses = gameResults.filter((gameResult) => (game.result ? gameResult.game === game.result : 'Neutral')); 
+        let gameResultClasses = gameResults.filter((gameResult) =>
+          game.result ? gameResult.game === game.result : 'Neutral'
+        );
 
         let backGroundColor = gameResultClasses[0].user;
-
-        console.log(gameResultClasses);
-        console.log(backGroundColor);
 
         return (
           <div className={styles.game + ' ' + backGroundColor} key={index}>
