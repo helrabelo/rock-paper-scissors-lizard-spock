@@ -47,7 +47,7 @@ export default function Home() {
       result,
     });
 
-    setGame([...games, {user: userChoice, computer: computerChoice, result}]);
+    setGame([...games, { user: userChoice, computer: computerChoice, result }]);
   };
 
   const handleResetStatistics = () => {
@@ -156,8 +156,6 @@ export default function Home() {
 
       {/* GENERAL SCORE / OPTIONS */}
       <Statistics games={games} resetStatistics={handleResetStatistics} />
-
-      {/* FOOTER */}
     </div>
   );
 }

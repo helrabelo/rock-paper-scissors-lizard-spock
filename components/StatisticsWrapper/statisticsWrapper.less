@@ -1,14 +1,18 @@
+@import '../../styles/variables.less';
+
 .statisticsWrapper {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin-top: 60px;
 
   .statistics {
     display: flex;
     flex-grow: 2;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: stretch;
     
   }
 
@@ -17,8 +21,20 @@
     align-items: center;
     justify-content: center;
     flex-grow: 1;
-    
+    margin-left: 20px;
+
+    .resetButton {
+      background-color: @danger;
+      color: white;
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
   }
+}
 
-
+.statisticsHistory {
+  transition: 0.3s all ease-in-out;
+  margin-top: 60px;
 }

@@ -6,13 +6,13 @@ import { gameResults } from '../../constants/GameResults';
 
 const OptionCard = ({ type, userChoice, gameStatus }) => {
   const resultClasses = () =>
-    gameResults.filter((game) => (gameStatus ? game.game === gameStatus : 'N'));
+    gameResults.filter((game) =>
+      gameStatus ? game.game === gameStatus : 'Neutral'
+    );
 
   const [userCard, setUserCard] = useState(styles.neutral);
 
   const [computerCard, setComputerCard] = useState(styles.neutral);
-
-  console.log('game status: ', gameStatus);
 
   useEffect(() => {
     let result = resultClasses();
@@ -45,7 +45,9 @@ const OptionCard = ({ type, userChoice, gameStatus }) => {
               ? `The game status is: ${gameStatus}`
               : `Please confirm your choice to see the result`}
           </p>
-        ) : <p></p>}
+        ) : (
+          <p></p>
+        )}
       </div>
     </div>
   );

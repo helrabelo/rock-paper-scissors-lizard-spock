@@ -7,7 +7,7 @@ import Button from '../Button';
 
 import styles from './gameoptions.less';
 
-const GameOptions = ({handleChoice}) => {
+const GameOptions = ({handleChoice, disabled}) => {
   return (
     <div className={styles.gameOptions}>
       {gameOptions.map((option, index) => {
@@ -17,6 +17,7 @@ const GameOptions = ({handleChoice}) => {
               key={`${index}-${option.option}`}
               onClick={handleChoice(option.option.toString())}
               classes={styles.chooseButton}
+              disabled={disabled}
               primary
             >
               {capitalize(option.option).toString()}

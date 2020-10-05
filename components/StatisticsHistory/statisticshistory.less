@@ -1,21 +1,22 @@
+
+@import '../../styles/variables.less';
+
 .historyWrapper {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  border: thin solid #0003;
+  box-shadow: 1px 3px 10px #0003;
+  background-color: @secondaryColor;
+  padding: 20px;
+  margin: 20px 0;
 
   .game {
-    width: 100%;
+    width: 220px;
     display: flex;
-    justify-content: flex-start;
-
-    > * {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-right: 10px;
-      border: thin solid black;
-      padding: 10px;
-      width: 60px;
-      height: 30px;
-    }
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-radius: 16px;
+    margin: 10px;
   }
 }

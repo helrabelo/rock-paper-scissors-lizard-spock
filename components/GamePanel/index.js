@@ -33,7 +33,7 @@ const GamePanel = ({
       <div className={styles.controlWrapper}>
         {/* ACTIONS */}
 
-        <GameOptions handleChoice={handleChoice} />
+        <GameOptions handleChoice={handleChoice} disabled={currentGame.result}/>
 
         <div className={styles.gameControl}>
           <Button

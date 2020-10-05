@@ -1,0 +1,27 @@
+@import '../../styles/variables.less';
+
+.card {
+  background: @primaryColor;
+  border-radius: 16px;
+  padding: 20px 30px;
+  width: 220px;
+  max-width: 220px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: @tertiaryColor;
+  margin: 0 10px;
+
+  h3 {
+    flex-grow: 2;
+    line-height: 24px;
+    font-size: 1rem;
+  }
+
+  span {
+    flex-grow: 1;
+    font-size: 3rem;
+    text-align: right;
+    margin-left: 10px;
+  }
+}
