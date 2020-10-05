@@ -7,11 +7,11 @@ export const gameResults = [
     computer: null,
   },
   {
-    game: 'W',
+    game: 'Win',
     user: styles.success,
     computer: styles.danger,
   },
-  { game: 'L', user: styles.danger, computer: styles.success },
-  { game: 'T', user: styles.neutral, computer: styles.neutral },
-  { game: 'E', user: styles.error, computer: styles.error },
+  { game: 'Loss', user: styles.danger, computer: styles.success },
+  { game: 'Tie', user: styles.neutral, computer: styles.neutral },
+  { game: 'Error', user: styles.error, computer: styles.error },
 ];

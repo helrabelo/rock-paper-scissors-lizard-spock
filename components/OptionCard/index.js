@@ -6,32 +6,46 @@ import { gameResults } from '../../constants/GameResults';
 
 const OptionCard = ({ type, userChoice, gameStatus }) => {
   const resultClasses = () =>
-    gameResults.filter((game) => gameStatus ? (game.game === gameStatus) : 'N');
+    gameResults.filter((game) => (gameStatus ? game.game === gameStatus : 'N'));
 
   const [userCard, setUserCard] = useState(styles.neutral);
 
   const [computerCard, setComputerCard] = useState(styles.neutral);
 
+  console.log('game status: ', gameStatus);
+
   useEffect(() => {
     let result = resultClasses();
     setUserCard(result[0].user);
     setComputerCard(result[0].computer);
-    console.log('gameStatus changed');
-    console.log('result classes: ', resultClasses());
-    console.log('user card: ', userCard);
-    console.log('computer card: ', computerCard);
   }, [gameStatus]);
 
   return (
     <div className={styles.optionCardWrapper}>
       <div
         className={
-          styles.optionCard + ' ' + (type === 'user' ? userCard : computerCard)
+          styles.optionCard +
+          ' ' +
+          (type === 'user' ? userCard : gameStatus ? computerCard : '')
         }
       >
-        <p>The {type === 'user' ? 'user' : 'computer'} choice is: {userChoice}</p>
+        <p>
+          {type === 'user'
+            ? userChoice
+              ? `The user choice is: ${userChoice}`
+              : 'Please select an option below'
+            : gameStatus
+            ? `computer choice is: ${userChoice}`
+            : `Please confirm your choice to see computer's`}
+        </p>
         <h1>Here we should have and Image</h1>
-        <p>The game status is: {gameStatus ? gameStatus : 'not played yet'}</p>
+        {type === 'user' ? (
+          <p>
+            {gameStatus
+              ? `The game status is: ${gameStatus}`
+              : `Please confirm your choice to see the result`}
+          </p>
+        ) : <p></p>}
       </div>
     </div>
   );

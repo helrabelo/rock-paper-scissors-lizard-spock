@@ -1,21 +1,37 @@
+@import '../../styles/variables.less';
+
 .mainGame {
-  
-  
   .optionsWrapper {
     display: flex;
   }
 
   .controlWrapper {
-    
+    .gameControl {
+      display: flex;
+      justify-content: center;
 
-    .result {
-      .buttons {
-        display: flex;
-        flex-wrap: nowrap;
+      .confirm {
+        width: auto;
+        margin: 0 20px;
+        background: @secondaryColor;
+        color: @tertiaryColor;
 
-        .chooseButton {
-          width: auto;
-          display: block;
+        &:hover {
+          background-color: @primaryColor;
+        }
+
+        &:disabled {
+          opacity: 0.5;
+        }
+      }
+
+      .resetGame {
+        width: auto;
+        margin: 0 20px;
+        color: white;
+
+        &:disabled {
+          opacity: 0.5;
         }
       }
     }

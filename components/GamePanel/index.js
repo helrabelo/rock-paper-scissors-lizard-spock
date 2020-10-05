@@ -12,15 +12,22 @@ const GamePanel = ({
   handleChoice,
   handleResetGame,
   handleSubmitChoice,
-  currentGame
+  currentGame,
 }) => {
-
   return (
     <Container className={styles.mainGame}>
       {/* MAIN GAME SCREEN - RESULT */}
       <div className={styles.optionsWrapper}>
-        <OptionCard type={'user'} userChoice={currentGame.user} gameStatus={currentGame.result} />
-        <OptionCard type={'computer'} userChoice={currentGame.computer} gameStatus={currentGame.result} />
+        <OptionCard
+          type={'user'}
+          userChoice={currentGame.user}
+          gameStatus={currentGame.result}
+        />
+        <OptionCard
+          type={'computer'}
+          userChoice={currentGame.computer}
+          gameStatus={currentGame.result}
+        />
       </div>
 
       <div className={styles.controlWrapper}>
@@ -28,16 +35,22 @@ const GamePanel = ({
 
         <GameOptions handleChoice={handleChoice} />
 
-        <div className={styles.result}>
-          <div className={styles.buttons}>
-            <Button onClick={handleSubmitChoice} classes={styles.chooseButton}>
-              Confirm Choice
-            </Button>
+        <div className={styles.gameControl}>
+          <Button
+            onClick={handleSubmitChoice}
+            disabled={!currentGame.user || currentGame.result}
+            classes={styles.confirm}
+          >
+            Confirm Choice
+          </Button>
 
-            <p>Result</p>
-          </div>
-          <Button onClick={handleResetGame} classes={styles.chooseButton} alert={true}>
-            Reset choice
+          <Button
+            onClick={handleResetGame}
+            classes={styles.resetGame}
+            alert
+            disabled={!currentGame.result}
+          >
+            Reset Game
           </Button>
         </div>
       </div>

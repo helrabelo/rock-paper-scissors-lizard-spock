@@ -9,9 +9,9 @@ import History from '../StatisticsHistory';
 const StatisticsWrapper = ({ games, resetStatistics }) => {
   let gamesPlayed = games;
   let totalGames = games.length;
-  let gamesWon = gamesPlayed.filter((game) => game.result === 'W').length;
-  let gamesWonWithSpock = gamesPlayed.filter((game) => game.result === 'W' && game.user === 'spock').length;
-  let gamesLostToLizard = gamesPlayed.filter((game) => game.result === 'L' && game.computer === 'lizard').length;
+  let gamesWon = gamesPlayed.filter((game) => game.result === 'Win').length;
+  let gamesWonWithSpock = gamesPlayed.filter((game) => game.result === 'Win' && game.user === 'spock').length;
+  let gamesLostToLizard = gamesPlayed.filter((game) => game.result === 'Loss' && game.computer === 'lizard').length;
 
 
   return (
